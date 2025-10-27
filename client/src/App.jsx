@@ -1,8 +1,18 @@
 import React from 'react'
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import PrivateRoutes from './components/PrivateRoutes'
+import Home from './pages/Home'
 const App = () => {
   return (
-    <div className='p-4 bg-cyan-500'>App </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/login' element={<Login />}/>
+      <Route path='/register' element={<Register />}/>
+      <Route path='/' element={<PrivateRoutes><Home/></PrivateRoutes>}/>
+    </Routes>
+    </BrowserRouter>
   )
 }
 
