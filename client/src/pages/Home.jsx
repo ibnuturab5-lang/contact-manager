@@ -1,12 +1,13 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React from "react";
+import Navbar from "../components/Navbar";
+import DashboardLayouts from "../components/DashboardLayouts";
 
 const Home = () => {
   return (
-    <div>
-      <Navbar/>
-      <p>Home</p></div>
-  )
-}
+    <DashboardLayouts activeMenu={'Contacts'}>
+      <p>Home</p>
+    </DashboardLayouts>
+  );
+};
 
-export default Home
+export default Home;

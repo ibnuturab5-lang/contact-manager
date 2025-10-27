@@ -16,7 +16,7 @@ const Navbar = () => {
       <Link to={'/'}><h1 className='font-bold text-xl text-slate-200 '>Contact Manager</h1></Link>
       <div className='flex items-center gap-3'>
        {user && <>
-       <div className='h-10 w-10 rounded-full bg-purple-600 text-slate-300 capitalize flex items-center justify-center font-bold'>{user.name[0]}</div>
+       <div className='h-10 w-10 rounded-full bg-slate-800 border-1 text-slate-300 capitalize sm:hidden flex items-center justify-center font-bold'>{user.name[0]}</div>
         <button className='px-3 py-1 rounded-md bg-slate-700 text-slate-300 hover:bg-slate-800 transition-colors ' onClick={handleLogout}>Logout</button></>
       }</div>
     </div>
