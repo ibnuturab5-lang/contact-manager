@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../utils/axiosInstance";
 
-initialState={
+const initialState={
     contacts:[],
     contact:{},
     loading: false,
