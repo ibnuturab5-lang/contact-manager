@@ -1,20 +1,19 @@
-import React from 'react'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import React from "react";
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
-const DashboardLayouts = ({children,activeMenu}) => {
+const DashboardLayouts = ({ children, activeMenu }) => {
   return (
-    <div className=''>
-      <Navbar activeMenu={activeMenu}/>
-     <div className='flex '>
-<Sidebar activeMenu={activeMenu}/>
-      <div className='pt-4 ml-52'>
-        {children}
+    <div className="bg-slate-100">
+      <Navbar activeMenu={activeMenu} />
+      <div className="flex ">
+        <Sidebar activeMenu={activeMenu} />
+        <div className="mt-24 ml-56 bg-white p-3 rounded-md flex-1 h-screen ">
+          {children}
+        </div>
       </div>
-     </div>
-      
     </div>
-  )
-}
+  );
+};
 
-export default DashboardLayouts
+export default DashboardLayouts;
