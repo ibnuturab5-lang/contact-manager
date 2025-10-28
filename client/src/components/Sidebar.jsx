@@ -19,7 +19,7 @@ await dispatch(logoutUser()).unwrap()
 navigate('/login')
   }
   return (
-    <div className="fixed top-16 left-0 w-52 border-r min-h-screen bg-white ">
+    <div className="fixed top-16 left-0 hidden sm:block w-52 border-r min-h-screen bg-white ">
       <div className="flex flex-col gap-2 my-10 ">
         <h1 className="flex items-center justify-center mx-auto w-16 h-16 rounded-full bg-teal-800 text-slate-300 font-bold capitalize text-2xl">
           {user.name[0]}

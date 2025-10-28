@@ -12,7 +12,7 @@ const Navbar = () => {
   }
   const {user}=useSelector(state=>state.user)
   return (
-    <div className='fixed w-full z-50 flex items-center justify-between bg-teal-700 p-3 border-b shadow-lg '>
+    <div className='fixed w-full z-50 flex items-center justify-between bg-teal-700 p-3 border-b shadow-lg  '>
       <Link to={'/'}><h1 className='font-bold text-xl text-slate-200 '>Contact Manager</h1></Link>
       <div className='flex items-center gap-3'>
        {user && <>
