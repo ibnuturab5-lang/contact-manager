@@ -13,17 +13,19 @@ const Home = () => {
   useEffect(()=>{
     if(user){
       dispatch(getAllContacts())
-      console.log(contacts)
+     
     }
   },[dispatch, user])
+  //  console.log(contacts)
   const handleDelete=(id)=>{
      if(window.confirm('Are you sure you want to delete this ?')){
      dispatch(deleteContact(id))
+      dispatch(getAllContacts());
    }
    
   }
-  const handleEdit=(contact)=>{
-  dispatch(updateContact(contact))
+  const handleEdit=()=>{
+  dispatch(getAllContacts());
   }
   return (
     <DashboardLayouts activeMenu={"Contacts"}>
@@ -33,12 +35,13 @@ const Home = () => {
       <div className="overflow-x-auto  mx-auto">
         <table className="rounded-md min-w-full table-auto">
           <thead>
-            <tr className="flex gap-3 items-center justify-between bg-slate-200 ">
-            <th className="py-2 text-start border-b flex-1">Name</th>
-            <th className="py-2 text-start border-b flex-1">Email</th>
-            <th className="py-2 text-start border-b flex-1">Phone</th>
-            <th className="py-2 text-start border-b flex-1">Place</th>
-            <th className="py-2 text-start border-b flex-1">Actions</th>
+            <tr className="flex gap-3 items-center bg-slate-200 ">
+            <th className="py-2 text-start border-b w-24 px-2">Name</th>
+            <th className="py-2 text-start border-b w-24 px-2">Phone</th>
+            <th className="py-2 text-start border-b w-40 px-2">Email</th>
+            
+            <th className="py-2 text-start border-b w-24 px-2">Place</th>
+            <th className="py-2 text-start border-b w-24 px-2">Actions</th>
           </tr>
           </thead>
           <tbody className="">

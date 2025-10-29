@@ -10,41 +10,49 @@ const TableCard = ({ contact,onEdit,onDelete }) => {
   const [email,setEmail]=useState(contact.email ||'')
   const [place,setPlace]=useState(contact.place ||'')
   const dispatch=useDispatch()
+  const contactData={ name, email, phone, place }
   const handleEditClick=()=>{
     setIsEditing(true)
   }
-  const handleSaveClick=async(id)=>{
-    dispatch(clearError())
-    await dispatch(updateContact(id,{name,email,phone,place})).unwrap()
-    setIsEditing(false)
-    onEdit({...contact,name,email,phone,place})
-  }
+    const handleSaveClick = async () => {
+    dispatch(clearError());
+    try {
+      await dispatch(updateContact({id:contact._id, contactData :contactData })).unwrap();
+     
+      onEdit({ ...contact, name, email, phone, place });
+       setIsEditing(false);
+    } catch (error) {
+      console.error("Failed to save contact:", error);
+    }
+  };
   const handleCancelClick=()=>{
-    setIsEditing(false)
+    
     setName(contact.name)
     setEmail(contact.email)
     setPhone(contact.phone)
     setPlace(contact.place)
+    setIsEditing(false)
   }
 
   return (
-        <tr className="flex gap-3 items-center justify-between  even:bg-slate-200 p-2 ">
-          <td className="whitespace-nowrap  text-sm flex-1 no-wrap ">
-            {isEditing ? <input type="text" value={name} onChange={(e)=>setName(e.target.value)} /> : contact.name}
+        <tr className="flex gap-3 items-center even:bg-slate-200 p-2  ">
+          <td className="whitespace-nowrap w-24  overflow-hidden   text-sm ">
+            {isEditing ? <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className="rounded-md px-2 py-2 border border-slate-400" /> : contact.name}
           </td>
-          <td className="whitespace-nowrap  text-sm flex-1 ">
-            {isEditing ? <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} /> : contact.email}
+          <td className="whitespace-nowrap  w-24   text-sm  ">
+            {isEditing ? <input type="text" value={phone} onChange={(e)=>setPhone(e.target.value)} className="rounded-md px-2 py-2 border border-slate-400"/> : contact.phone}
           </td>
-          <td className="whitespace-nowrap  text-sm flex-1 ">
-            {isEditing ? <input type="text" value={phone} onChange={(e)=>setPhone(e.target.value)}/> : contact.phone}
+          <td className="whitespace-nowrap  w-40 overflow-hidden   text-sm  ">
+            {isEditing ? <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} className="rounded-md px-2 py-2 border border-slate-400" /> : contact.email}
           </td>
-          <td className="whitespace-nowrap  text-sm flex-1 ">
-            {isEditing ? <input type="text" value={place} onChange={(e)=>setPlace(e.target.value)}/> : contact.place}
+          
+          <td className="whitespace-nowrap  w-24   text-sm  ">
+            {isEditing ? <input type="text" value={place} onChange={(e)=>setPlace(e.target.value)} className="rounded-md px-2 py-2 border border-slate-400"/> : contact.place}
           </td>
-          <td className="whitespace-nowrap overflow-hidden text-sm flex-1 ">
+          <td className="whitespace-nowrap   overflow-hidden text-sm  ">
             {isEditing ? (
               <div className="flex items-center gap-3">
-                <button className="px-2 py-1 rounded-md bg-blue-500 text-slate-50 cursor-pointer " onClick={()=>handleSaveClick(contact._id)} >Save</button>
+                <button className="px-2 py-1 rounded-md bg-blue-500 text-slate-50 cursor-pointer " onClick={handleSaveClick} >Save</button>
                 <button  className="px-2 py-1 rounded-md bg-red-600  text-slate-50 cursor-pointer" onClick={handleCancelClick}>Cancel</button>
               </div>
             ) : (

@@ -40,7 +40,7 @@ export const deleteContact =createAsyncThunk('contact/deleteContact', async (id,
       return rejectWithValue(error.response.data)
     }
 });
-export const updateContact =createAsyncThunk('contact/updateContact', async (id,contactData, {rejectWithValue}) => {
+export const updateContact =createAsyncThunk('contact/updateContact', async ({id,contactData}, {rejectWithValue}) => {
     try {
         const response=await axiosInstance.put(`/api/contacts/${id}`, contactData)
         return response.data
@@ -101,8 +101,9 @@ const contactSlice=createSlice({
         })
         .addCase(deleteContact.fulfilled, (state,action)=>{
             state.loading=false;
-            state.contacts.filter(item=> item._id !== action.payload);
+            state.contacts=state.contacts.filter(item=> item._id !== action.payload);
             state.contact=null
+            state.error=null
         })
         .addCase(deleteContact.rejected, (state,action)=>{
             state.loading =false;
@@ -114,7 +115,8 @@ const contactSlice=createSlice({
         })
         .addCase(updateContact.fulfilled, (state,action)=>{
             state.loading=false;
-            state.contacts.map((item)=>item._id=== action.payload._id ? action.payload: item);
+            state.contacts=state.contacts.map((item)=>item._id=== action.payload._id ? action.payload: item);
+            state.error=null
         })
         .addCase(updateContact.rejected, (state,action)=>{
             state.loading =false;
