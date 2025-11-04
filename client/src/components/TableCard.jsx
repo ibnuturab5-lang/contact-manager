@@ -35,25 +35,25 @@ const TableCard = ({ contact,onEdit,onDelete }) => {
   }
 
   return (
-        <tr className="flex gap-3 items-center even:bg-slate-200 p-2  ">
-          <td className="whitespace-nowrap w-24  overflow-hidden   text-sm ">
-            {isEditing ? <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className="rounded-md px-2 py-2 border border-slate-400" /> : contact.name}
+        <tr className="flex  items-center even:bg-slate-200   ">
+          <td className="w-[120px] lg:w-64 md:w-40 overflow-x-hidden px-2 whitespace-nowrap text-sm text-left  py-2 ">
+            {isEditing ? <input type="text"  value={name} onChange={(e)=>setName(e.target.value)} className="rounded-md px-2 py-2 w-full  border border-slate-400" /> : contact.name}
           </td>
-          <td className="whitespace-nowrap  w-24   text-sm  ">
-            {isEditing ? <input type="text" value={phone} onChange={(e)=>setPhone(e.target.value)} className="rounded-md px-2 py-2 border border-slate-400"/> : contact.phone}
+          <td className="w-[120px] lg:w-64 md:w-40 overflow-x-hidden px-2 whitespace-nowrap text-sm text-left  py-2  ">
+            {isEditing ? <input type="text"  value={phone} onChange={(e)=>setPhone(e.target.value)} className="rounded-md px-2 py-2 w-full  border border-slate-400"/> : contact.phone}
           </td>
-          <td className="whitespace-nowrap  w-40 overflow-hidden   text-sm  ">
-            {isEditing ? <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} className="rounded-md px-2 py-2 border border-slate-400" /> : contact.email}
+          <td className="w-40 lg:w-64 md:w-40  whitespace-nowrap text-sm overflow-x-hidden text-left  py-2">
+            {isEditing ? <input type="text"  value={email} onChange={(e)=>setEmail(e.target.value)} className="rounded-md px-2 py-2 w-full  border border-slate-400 " /> : contact.email}
           </td>
           
-          <td className="whitespace-nowrap  w-24   text-sm  ">
-            {isEditing ? <input type="text" value={place} onChange={(e)=>setPlace(e.target.value)} className="rounded-md px-2 py-2 border border-slate-400"/> : contact.place}
+          <td className="w-[120px] lg:w-64 md:w-40 overflow-x-hidden px-2 whitespace-nowrap text-sm text-left  py-2">
+            {isEditing ? <input type="text"  value={place} onChange={(e)=>setPlace(e.target.value)} className="rounded-md px-2 py-2 w-full  border border-slate-400"/> : contact.place}
           </td>
-          <td className="whitespace-nowrap   overflow-hidden text-sm  ">
+          <td className="whitespace-nowrap w-[120px] md:w-40 text-sm  py-2  ">
             {isEditing ? (
               <div className="flex items-center gap-3">
                 <button className="px-2 py-1 rounded-md bg-blue-500 text-slate-50 cursor-pointer " onClick={handleSaveClick} >Save</button>
-                <button  className="px-2 py-1 rounded-md bg-red-600  text-slate-50 cursor-pointer" onClick={handleCancelClick}>Cancel</button>
+                <button  className="px-2  rounded-md bg-red-600  text-slate-50 cursor-pointer" onClick={handleCancelClick}>Cancel</button>
               </div>
             ) : (
               <div className="flex items-center gap-3">

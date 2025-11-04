@@ -23,8 +23,10 @@ const Navbar = ({activeMenu}) => {
   
   return (<>
     <div className='fixed w-full z-50 flex items-center justify-between bg-teal-700 p-4 shadow-xl  rounded-b-md'>
-      <div className='flex gap-2 items-center text-slate-50 cursor-pointer'>
-       {open ? (<MdClose size={30} onClick={()=>setOpen(!open)}/>):(<MdMenu size={30} onClick={()=>setOpen(!open)}/>)} 
+      <div className='flex  gap-2 items-center text-slate-50 cursor-pointer'>
+       <div className='sm:hidden'>
+        {open ? (<MdClose size={30} onClick={()=>setOpen(!open)}/>):(<MdMenu size={30} onClick={()=>setOpen(!open)}/>)} 
+       </div>
          <Link to={'/'}><h1 className='font-bold text-xl text-slate-200 '>Contact Manager</h1></Link>
       </div>
        
