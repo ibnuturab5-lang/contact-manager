@@ -4,12 +4,13 @@ import DashboardLayouts from "../components/DashboardLayouts";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllContacts,deleteContact } from '../slices/contactSlice';
 import TableCard from "../components/TableCard";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdAdd } from  'react-icons/md'
 const Home = () => {
   const {user}=useSelector(state=>state.user)
   const {contacts,loading,error}=useSelector(state=>state.contact)
   const dispatch=useDispatch()
+  const navigate=useNavigate()
 
   useEffect(()=>{
     if(user){
@@ -27,6 +28,16 @@ const Home = () => {
   }
   const handleEdit=()=>{
   dispatch(getAllContacts());
+  }
+  if(loading){
+    return <div className="p-4 text-slate-500">Loading ....</div>
+  }
+  if(error){
+    return <div className="p-2 text-red-500">{error.message}</div>
+  }
+  if(!user){
+    navigate('/login')
+    return;
   }
   return (
     <DashboardLayouts activeMenu={"Contacts"}>

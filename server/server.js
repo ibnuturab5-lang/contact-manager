@@ -12,7 +12,7 @@ const port = process.env.PORT;
 const app = express();
 app.use(
   cors({
-    origin:'https://foul-cobweb-5g796v74rq4627q7j-5173.app.github.dev',
+    origin:['https://foul-cobweb-5g796v74rq4627q7j-5173.app.github.dev','https://contact-manager-2k65.vercel.app'],
     allowedHeaders: [
       "Content-Type",
       "Authorization",
