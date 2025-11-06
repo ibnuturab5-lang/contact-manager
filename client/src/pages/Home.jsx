@@ -36,7 +36,7 @@ const Home = () => {
       <Link to={'/add-contact'} className="px-4 py-2 sm:w-48 mx-auto hover:bg-teal-800 text-center rounded-md bg-teal-700 text-slate-50">Add Contact</Link>
      </div>)}
      <h2 className="text-center font-bold py-4">Table of  Contacts</h2>
-     <div className="max-w-[95%]  overflow-x-scroll">
+     <div className=" max-w-[96%]  overflow-x-scroll">
       <table className="table-auto ">
         <thead>
           <tr className="flex  items-center  bg-slate-500 text-slate-50">
@@ -58,7 +58,8 @@ const Home = () => {
         </tbody>
       </table>
      </div>
-     <button className="p-2 bg-blue-500 hover:bg-blue-700 rounded-full text-slate-50 font-bold bottom-4 right-4 absolute sm:hidden"><MdAdd size={40}/></button>
+     <Link to={'/add-contact'}>
+     <button className="p-2 bg-blue-500 hover:bg-blue-700 rounded-full text-slate-50 font-bold bottom-4 right-4 absolute sm:hidden"><MdAdd size={40}/></button></Link>
     </DashboardLayouts>
   );
 };

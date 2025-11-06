@@ -10,9 +10,9 @@ import { getUserProfile } from './slices/userSlice'
 const App = () => {
   const {user}=useSelector(state=>state.user)
 const dispatch=useDispatch()
-useEffect(()=>{
- dispatch(getUserProfile())
-},[dispatch,user])
+// useEffect(()=>{
+//  dispatch(getUserProfile())
+// },[dispatch,user])
 
   return (
     <BrowserRouter>

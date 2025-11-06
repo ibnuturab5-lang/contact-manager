@@ -10,7 +10,7 @@ const DashboardLayouts = ({ children, activeMenu }) => {
         
           <Sidebar activeMenu={activeMenu} />
      
-        <div className="mt-24 sm:ml-56 bg-white p-3 rounded-md flex-1 shadow-md max-w-[96%] mx-auto ">
+        <div className="mt-24 sm:ml-56 bg-white p-3 rounded-md flex-1 shadow-md max-w-[96%]  mx-auto ">
           {children}
         </div>
       </div>
