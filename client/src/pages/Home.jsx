@@ -30,10 +30,12 @@ const Home = () => {
   dispatch(getAllContacts());
   }
   if(loading){
-    return <div className="p-4 text-slate-500">Loading ....</div>
+    return <DashboardLayouts activeMenu={"Contacts"} className="p-4 text-slate-500">
+      
+    </DashboardLayouts>
   }
   if(error){
-    return <div className="p-2 text-red-500">{error.message}</div>
+    return <DashboardLayouts activeMenu={"Contacts"} className="p-2 text-red-500">{error.message}</DashboardLayouts>
   }
   if(!user){
     navigate('/login')

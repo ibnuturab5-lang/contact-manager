@@ -27,19 +27,19 @@ const navigate=useNavigate()
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block mb-2">Name</label>
-            <input type="text"placeholder="enter name" className="px-4 py-2 rounded-md outline-none bg-slate-200 text-slate-600 w-full" value={name} onChange={(e)=>setName(e.target.value)} required />
+            <input type="text"placeholder="Enter name" className="px-4 py-2 rounded-md outline-none bg-slate-200 text-slate-600 w-full" value={name} onChange={(e)=>setName(e.target.value)} required />
           </div>
           <div className="mb-4">
             <label htmlFor="email" className="block mb-2">Email</label>
-            <input type="text"placeholder="enter email" className="px-4 py-2 rounded-md outline-none bg-slate-200 text-slate-600 w-full" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+            <input type="text"placeholder="Enter email" className="px-4 py-2 rounded-md outline-none bg-slate-200 text-slate-600 w-full" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
           </div>
           <div className="mb-4">
             <label htmlFor="phone" className="block mb-2">Phone</label>
-            <input type="text"placeholder="enter phone" className="px-4 py-2 rounded-md outline-none bg-slate-200 text-slate-600 w-full" value={phone} onChange={(e)=>setPhone(e.target.value)} required/>
+            <input type="text"placeholder="Enter phone" className="px-4 py-2 rounded-md outline-none bg-slate-200 text-slate-600 w-full" value={phone} onChange={(e)=>setPhone(e.target.value)} required/>
           </div>
           <div className="mb-4">
             <label htmlFor="place" className="block mb-2">Place</label>
-            <input type="text"placeholder="enter place" className="px-4 py-2 rounded-md outline-none bg-slate-200 text-slate-600 w-full" value={place} onChange={(e)=>setPlace(e.target.value)} />
+            <input type="text"placeholder="Enter place" className="px-4 py-2 rounded-md outline-none bg-slate-200 text-slate-600 w-full" value={place} onChange={(e)=>setPlace(e.target.value)} />
           </div>
           {error && <p className="text-red-600 p-2 text-sm">Error: {error.message}</p>}
           <button type="submit" className=" px-4 py-2 rounded-md bg-teal-700 hover:bg-teal-800 text-slate-50 w-full sm:w-36 ">{loading ? 'adding...':'Add Contact'}</button>
