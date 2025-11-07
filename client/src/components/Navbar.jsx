@@ -27,22 +27,22 @@ const Navbar = ({activeMenu}) => {
        <div className='sm:hidden'>
         {open ? (<MdClose size={30} onClick={()=>setOpen(!open)}/>):(<MdMenu size={30} onClick={()=>setOpen(!open)}/>)} 
        </div>
-         <Link to={'/'}><h1 className='font-bold text-xl text-slate-200 '>Contact Manager</h1></Link>
+         <Link to={'/'}><h1 className='font-bold sm:text-xl text-slate-200 '>Contact Manager</h1></Link>
       </div>
        
-      <div className='flex items-center gap-3'>
+      <div className='max-[350px]:hidden flex items-center gap-3'>
        {user && <>
        <div className='h-10 w-10 rounded-full bg-slate-800 border-1 text-slate-300 capitalize sm:hidden flex items-center justify-center font-bold'>{user.name[0]}</div>
         <button className='px-3 py-1 rounded-md bg-slate-700 text-slate-300 hover:bg-slate-800 transition-colors ' onClick={handleLogout}>Logout</button></>
       }</div>
     </div>
     {open &&  <div className='flex '>
-        <div className='w-52  fixed z-50 bg-slate-300  top-16 pt-10  h-screen'>
+        <div className='w-48  fixed z-30 bg-slate-300  top-16 pt-10  h-screen'>
           <ul className="space-y-6 px-3  mt-10">
                 {SIDEBAR_DATA.map((item) => (
                   <li
                     key={item.id}
-                    className={` flex gap-3 items-center font-bold px-4 py-2 rounded-md  ${
+                    className={` flex gap-3 items-center  px-4 py-2 rounded-md  ${
                       activeMenu == item.label
                         ? " bg-teal-700 hover:bg-teal-800 transition-colors text-slate-50"
                         : " hover:bg-slate-200"

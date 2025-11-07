@@ -6,6 +6,7 @@ import { getAllContacts,deleteContact } from '../slices/contactSlice';
 import TableCard from "../components/TableCard";
 import { Link, useNavigate } from "react-router-dom";
 import { MdAdd } from  'react-icons/md'
+import Loader from '../components/Loader';
 const Home = () => {
   const {user}=useSelector(state=>state.user)
   const {contacts,loading,error}=useSelector(state=>state.contact)
@@ -31,7 +32,9 @@ const Home = () => {
   }
   if(loading){
     return <DashboardLayouts activeMenu={"Contacts"} className="p-4 text-slate-500">
-      
+      <div className="h-48 flex items-center justify-center">
+        <Loader/>
+      </div>
     </DashboardLayouts>
   }
   if(error){

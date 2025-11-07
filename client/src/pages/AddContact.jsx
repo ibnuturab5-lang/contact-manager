@@ -21,9 +21,9 @@ const navigate=useNavigate()
   }
   return <DashboardLayouts activeMenu={'Add Contact'}>
     
-    <div className="">
+    <div className="max-w-[96%]">
       <h1 className="font-bold text-center">Add contact</h1>
-      <div className="mt-4 shadow-md max-w-[80%] bg-white p-3 mx-auto">
+      <div className="mt-4 shadow-md sm:max-w-[80%] bg-white p-3 mx-auto">
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block mb-2">Name</label>
